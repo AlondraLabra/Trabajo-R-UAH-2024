@@ -10,7 +10,7 @@ bibliography: references.bib
 
 En las últimas décadas ha surgido desde el planteamiento de la teoría feminista una serie de demandas que hacen alusión a distintas formas en las que la violencia de género viene a estar presente en la estructura social latinoamericana. Estas formas se expresan en ámbitos políticos, públicos, privados, culturales; es de alguna forma una violencia sistematizada. En particular, este artículo busca profundizar acerca de una de las formas de violencia de género que se expresa en la vida privada y se condice con las labores de cuidado asignadas a las mujeres como un trabajo no remunerado y que viene a instaurarse desde la colonización, cuyas víctimas fueron mujeres indígenas, tal como lo expresa Mendoza en [@c.mendoza2023], de forma específica:
 
-"el posicionamiento de madres indígenas que debían hacerse cargo de sus hijos mestizos y volverse el pilar fundamental de la familia fue un fenómeno común en toda la región que dejó a la mujer como principal sustento del cuidado familiar y responsable de ese tipo de labores". [@c.mendoza2023]
+*"el posicionamiento de madres indígenas que debían hacerse cargo de sus hijos mestizos y volverse el pilar fundamental de la familia fue un fenómeno común en toda la región que dejó a la mujer como principal sustento del cuidado familiar y responsable de ese tipo de labores". [@c.mendoza2023]*
 
 Para efectos de esta investigación, se entenderá que a menor reconocimiento de las labores de cuidado como un trabajo, mayor es el índice de enfermedades desarrolladas por mujeres cuidadoras, a raíz de lo que debe ser entendido como estrés laboral dada la carencia de normas que regulen el espacio de trabajo (el hogar).
 
