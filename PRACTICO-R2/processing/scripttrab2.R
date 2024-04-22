@@ -7,10 +7,10 @@ devtools::install_github("strengejacke/strengejacke", force = TRUE)
 library(strengejacke)
 
 # se cargan los datos
-base <- read_dta("C:/Users/alond/Desktop/OFC-R/Trabajo-R-UAH-2024/PRACTICO-R2/input")
+casen22 <- read_dta("C:/Users/alond/Desktop/OFC-R/Trabajo-R-UAH-2024/PRACTICO-R2/input/casen22")
 
 # aquí separo las variables de inetrés para luego hacer la bae de datos procesada
-proc_data <- base %>%
+proc_data <- casen22 %>%
   select(o6, o7, sexo, edad)
 
 
@@ -29,10 +29,10 @@ proc_data$sexo <- recode(proc_data$sexo, "-2='NA'; -1='NA'; 1='Hombre'; 2='Mujer
 
 proc_data$razon <- set_labels(proc_data$razon,
                               labels=c( "Está en espera de una confirmación"=1,2,
-                                        "Se dedica a labores de cuidado"=3,4,5,
+                                        "Se dedica a labores de cuidado"=3,4,5,7,8,9,
                                         "Se dedica al trabajo doméstico"=10,
-                                        "Dificultades para conseguir trabajo"=6,7,8,9,14,
-                                        "Otro motivo"=11,12,13,15,16,17,18,19))
+                                        "Dificultades para conseguir trabajo"=6,12,13,14,
+                                        "Otro motivo"=11,15,15,17,18,19))
 
 
 # para trabajar los datos procesados, crearé un objeto que recopile los datos de las variables
@@ -110,4 +110,8 @@ tabla <- sjt.xtab(proc_data$razon, proc_data$sexo, encoding = "UTF-8")
 pdf("ruta_archivo/tabla.pdf")
 print(tabla)
 dev.off()
+
+tabla
+
+save(proc_data, file="C:/Users/alond/Desktop/OFC-R/Trabajo-R-UAH-2024/PRACTICO-R2/input/data/proc_data.RData")
 
