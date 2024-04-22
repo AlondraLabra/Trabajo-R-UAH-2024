@@ -1,3 +1,0 @@
-[1,"==> quarto preview trabajo2.0.qmd --to html --no-watch-inputs --no-browse\n\n"]
-[1,"pandoc \n  to: html\n  output-file: trabajo2.0.html\n  standalone: true\n  section-divs: true\n  html-math-method: mathjax\n  wrap: none\n  default-image-extension: png\n  \nmetadata\n  document-css: false\n  link-citations: true\n  date-format: long\n  lang: en\n  title: Alondra Labra\n  author: 'La urgencia de mirar hacia las consecuencias: labores de cuidado asignadas desde la colonia a mujeres en América Latina'\n  editor: visual\n  bibliography:\n    - references.bib\n  \n"]
-[1,"File references.bib not found in resource path\r\n"]
