@@ -1,3 +1,4 @@
+
 library(pacman)
 p_load(dplyr, sjmisc, car, sjlabelled, stargazer, haven, summarytools, kableExtra, sjPlot, corrplot, sessioninfo, ggplot2)
 
@@ -6,18 +7,18 @@ install.packages("devtools")
 devtools::install_github("strengejacke/strengejacke", force = TRUE)
 library(strengejacke)
 
-# Cargar datos
+# se cargan los datos
 base <- read_dta("C:/Users/alond/Desktop/OFC-R/Trabajo-R-UAH-2024/PRACTICO-R2/input")
 
-# Seleccionar variables de interés
+# aquí separo las variables de inetrés para luego hacer la bae de datos procesada
 proc_data <- base %>%
   select(o6, o7, sexo, edad)
 
 
-# Convertir la columna 'o6' a tipo character antes de recodificar
+# la 06 es numérica, así que paso a convertirla en character antes de codoficicar
 proc_data$o6 <- as.character(proc_data$o6)
 
-# Recodificar la variable o6
+
 proc_data$o6 <- recode(proc_data$o6, "-2='NA'; -1='NA'; 1='Sí'; 2='No'; 3='No'; 4='No'")
 
 
@@ -35,24 +36,11 @@ proc_data$razon <- set_labels(proc_data$razon,
                                         "Otro motivo"=11,12,13,15,16,17,18,19))
 
 
-# Crear variable "muj_trab" y guardar datos procesados
+# para trabajar los datos procesados, crearé un objeto que recopile los datos de las variables
 proc_data$muj_trab <- ifelse(proc_data$sexo == "Mujer", proc_data$o6, NA)
-write.csv(proc_data, file = "C:/Users/alond/Desktop/OFC-R/Trabajo-R-UAH-2024/PRACTICO-R2/output/proc_data.csv", row.names = FALSE)
+write.csv(proc_data, file = "C:/Users/alond/Desktop/OFC-R/Trabajo-R-UAH-2024/PRACTICO-R2/input/proc_data.csv", row.names = FALSE)
 
-# Crear tabla cruzada
-tab_desc <- sjt.xtab(proc_data$o7, proc_data$edad, encoding = "UTF-8")
-ruta_archivo <- "C:/Users/alond/Desktop/OFC-R/Trabajo-R-UAH-2024/PRACTICO-R2/output/ELSOC_ess_merit2016.RData"
-save(proc_data, tab_desc, file = ruta_archivo)
-
-# Crear gráfico de barras
-ggplot(proc_data, aes(x = muj_trab, fill = sexo)) +
-  geom_bar() +
-  labs(title = "Mujeres fuera del mercado laboral",
-       x = "Búsqueda de trabajo",
-       y = "Cantidad") +
-  scale_fill_manual(values = c("Hombre" = "blue", "Mujer" = "pink"))
-
-# Recodificar variables y etiquetarlas
+#recod
 proc_data <- proc_data %>%
   mutate(across(starts_with("o"), ~ recode(., "c(-2,-1)=NA; 1=3; 2=2; 3=1; 4=0"))) %>%
   set_na(na = c(-2, -1)) %>%
@@ -62,7 +50,11 @@ proc_data <- proc_data %>%
   mutate(edad = cut(edad, c(18, 25, 35, 45, 55, Inf), labels = c("18-24 años", "25-34 años", "35-44 años", "45-54 años", "55 o más años"), include.lowest = TRUE)) %>%
   mutate(sexo = set_labels(sexo, labels = c("Hombre" = 1, "Mujer" = 2)))
 
-# Etiquetar variables
+# tabla cruzada
+tab_desc <- sjt.xtab(proc_data$o7, proc_data$edad, encoding = "UTF-8")
+ruta_archivo <- "C:/Users/alond/Desktop/OFC-R/Trabajo-R-UAH-2024/PRACTICO-R2/output/ELSOC_ess_merit2016.RData"
+save(proc_data, tab_desc, file = ruta_archivo)
+
 proc_data <- proc_data %>%
   rename_with(~ tolower(gsub("o", "", .x)), starts_with("o")) %>%
   set_labels(busc_trab = "Búsqueda de trabajo", razon = "Por qué no ha buscado", edad = "Edad", sexo = "Sexo")
@@ -73,8 +65,24 @@ frq(proc_data$razon)
 frq(proc_data$edad)
 frq(proc_data$sexo)
 
-# Exportar tabla descriptiva
 tab1 <- stargazer(proc_data, type = "text")
+
+# ggplot para crear un gráfico de barras
+ggplot(proc_data, aes(x = busc_trab, fill = sexo)) +
+  geom_bar() +
+  labs(title = "Mujeres fuera del mercado laboral",
+       x = "Búsqueda de trabajo",
+       y = "Cantidad") +
+  scale_fill_manual(values = c("Hombre" = "coral", "Mujer" = "purple"))
+
+ggplot(proc_data, aes(x = razon, fill = sexo)) +
+  geom_bar() +
+  labs(title = "Mujeres fuera del mercado laboral",
+       x = "Razones",
+       y = "Cantidad") +
+  scale_fill_manual(values = c("Hombre" = "coral", "Mujer" = "purple"))
+
+
 
 # Mostrar resúmenes agrupados
 proc_data %>% 
