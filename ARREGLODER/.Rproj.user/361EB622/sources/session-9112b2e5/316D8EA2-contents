@@ -11,7 +11,15 @@ bibliography: references.bib
 ## La urgencia de mirar hacia las consecuencias: labores de cuidado asignadas desde la colonia a mujeres en América Latina
 
 ```{r}
-load("input/data/proc_data")
+load("C:/Users/alond/Desktop/OFC-R/Trabajo-R-UAH-2024/PRACTICO-R2/input/data/proc_data.RData")
+```
+
+```{r}
+library(pacman)
+p_load(dplyr, sjmisc, car, sjlabelled, stargazer, haven, summarytools, kableExtra, sjPlot, corrplot, sessioninfo, ggplot2)
+install.packages("devtools")
+devtools::install_github("strengejacke/strengejacke", force = TRUE)
+library(strengejacke)
 ```
 
 En las últimas décadas ha surgido desde el planteamiento de la teoría feminista una serie de demandas que hacen alusión a distintas formas en las que la violencia de género viene a estar presente en la estructura social latinoamericana. Estas formas se expresan en ámbitos políticos, públicos, privados, culturales; es de alguna forma una violencia sistematizada. En particular, este artículo busca profundizar acerca de una de las formas de violencia de género que se expresa en la vida privada y se condice con las labores de cuidado asignadas a las mujeres como un trabajo no remunerado y que viene a instaurarse desde la colonización, cuyas víctimas fueron mujeres indígenas, tal como lo expresa Mendoza en [@c.mendoza2023], de forma específica:
@@ -31,3 +39,7 @@ Por otra parte, debe considerarse el cuidado de adultos mayores como parte de un
 En último lugar, cabe recalcar que con frecuencia que la realidad de los hogares donde deben ejercerse roles de cuidado tienden a presentar bajos recursos económicos [@aliciabárcena2021] de modo que, en caso de hogares monoparentales sostenidos por mujeres, la carga pasa a duplicarse, empeorando las condiciones. Por otra parte, las políticas impulsadas por la inserción laboral al grupo de mujeres bajo la misión de una autonomía económica, esconde detrás las mayores cargas de trabajo dadas las condiciones expuestas con anterioridad a las que se ven enfrentadas las mujeres que cumplirían esta doble labor.
 
 En último lugar, lo que se busca llevar a cabo con esta investigación es la visibilización de un fenómeno precarizador de la vida de las trabajadoras del cuidado. Lo anterior da cuenta de la urgencia que tiene el desarrollo de políticas y programas de intervención con el propósito de regularizar y reconocer esta labor, pues, es finalmente desde la esfera pública que los efectos de esta problemática pueden transformarse, y ayudar a disminuir los níveles de depresión, estrés u otras enfermedades que pueden derivarse por las condiciones del trabajo de cuidados. 
+
+```{r}
+tabla <- sjt.xtab(proc_data$razon, proc_data$sexo, encoding = "UTF-8")
+```

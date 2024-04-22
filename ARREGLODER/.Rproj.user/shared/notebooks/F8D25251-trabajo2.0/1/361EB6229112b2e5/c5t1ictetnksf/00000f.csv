@@ -1,5 +1,0 @@
-"0","load(""input/data/proc_data"")"
-"2","Warning: cannot open compressed file 'input/data/proc_data', probable reason 'No such file or directory'"
-"2","Error in readChar(con, 5L, useBytes = TRUE) : 
-  no se puede abrir la conexión
-"

@@ -1,0 +1,28 @@
+{
+    "id": "EA40F06A",
+    "path": null,
+    "project_path": null,
+    "type": "object_explorer",
+    "hash": "0",
+    "contents": "",
+    "dirty": false,
+    "created": 1713810176988.0,
+    "source_on_save": false,
+    "relative_order": 5,
+    "properties": {
+        "id": "4d6369f91fe14340957bf3173a2be21a",
+        "name": "tabla",
+        "title": "tabla",
+        "language": "R",
+        "source_window_id": "",
+        "Source": "Source"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 2314885436535043442,
+    "encoding": "",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1713810176988,
+    "read_only": false,
+    "read_only_alternatives": []
+}

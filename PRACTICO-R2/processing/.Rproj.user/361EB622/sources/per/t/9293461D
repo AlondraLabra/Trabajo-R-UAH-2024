@@ -1,0 +1,28 @@
+{
+    "id": "9293461D",
+    "path": null,
+    "project_path": null,
+    "type": "object_explorer",
+    "hash": "0",
+    "contents": "",
+    "dirty": false,
+    "created": 1713810180134.0,
+    "source_on_save": false,
+    "relative_order": 6,
+    "properties": {
+        "id": "02f6f8c9067e436084a62adf96c7944a",
+        "name": "graph3",
+        "title": "graph3",
+        "language": "R",
+        "source_window_id": "",
+        "Source": "Source"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 7305805261407875631,
+    "encoding": "",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1713810180134,
+    "read_only": false,
+    "read_only_alternatives": []
+}

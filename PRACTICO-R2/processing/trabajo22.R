@@ -10,12 +10,15 @@ library(strengejacke)
 # se cargan los datos
 base <- read_dta("C:/Users/alond/Desktop/OFC-R/Trabajo-R-UAH-2024/PRACTICO-R2/input")
 
+proc_data <-na.omit(proc_data)
+save(proc_data, file="C:/Users/alond/Desktop/OFC-R/Trabajo-R-UAH-2024/PRACTICO-R2/input/data/proc_data.RData")
+
 # aquí separo las variables de inetrés para luego hacer la bae de datos procesada
 proc_data <- base %>%
   select(o6, o7, sexo, edad)
 
 
-# la 06 es numérica, así que paso a convertirla en character antes de codoficicar
+# la 06 es numérica, así que paso a convertirla en character antes de re codificar
 proc_data$o6 <- as.character(proc_data$o6)
 
 
@@ -26,7 +29,7 @@ proc_data$o6 <- recode(proc_data$o6, "-2=NA; -1=NA; 1='Sí'; 2='No'; 3='No'; 4='
 proc_data$o7 <- recode(proc_data$o7, "-2=NA; -1=NA; 1=3; 2=2; 3=1; 4=0")
 proc_data$edad <- recode(proc_data$edad, "-2=NA; -1=NA; 1=3; 2=2; 3=1; 4=0")
 proc_data$sexo <- as.character(proc_data$sexo)  # Convertir la columna 'sexo' a tipo character
-proc_data$sexo <- recode(proc_data$sexo, "-2='NA'; -1='NA'; 1='Hombre'; 2='Mujer'")
+proc_data$sexo <- recode(proc_data$sexo, "-2='NA'; -1='NA)
 
 proc_data$razon <- set_labels(proc_data$razon,
                               labels=c( "Está en espera de una confirmación"=1,2,
@@ -51,7 +54,7 @@ proc_data <- proc_data %>%
   mutate(sexo = set_labels(sexo, labels = c("Hombre" = 1, "Mujer" = 2)))
 
 # tabla cruzada
-tab_desc <- sjt.xtab(proc_data$o7, proc_data$edad, encoding = "UTF-8")
+tab_desc <- sjt.xtab(proc_data$razon, proc_data$edad, encoding = "UTF-8")
 ruta_archivo <- "C:/Users/alond/Desktop/OFC-R/Trabajo-R-UAH-2024/PRACTICO-R2/output/ELSOC_ess_merit2016.RData"
 save(proc_data, tab_desc, file = ruta_archivo)
 
@@ -68,14 +71,14 @@ frq(proc_data$sexo)
 tab1 <- stargazer(proc_data, type = "text")
 
 # ggplot para crear un gráfico de barras
-ggplot(proc_data, aes(x = busc_trab, fill = sexo)) +
+ggplot(proc_data, aes(x = razon, fill = sexo)) +
   geom_bar() +
   labs(title = "Mujeres fuera del mercado laboral",
-       x = "Búsqueda de trabajo",
-       y = "Cantidad") +
+       x = "Razon",
+       y = "s") +
   scale_fill_manual(values = c("Hombre" = "coral", "Mujer" = "purple"))
 
-ggplot(proc_data, aes(x = razon, fill = sexo)) +
+grafico2 <- ggplot(proc_data, aes(x = razon, fill = sexo)) +
   geom_bar() +
   labs(title = "Mujeres fuera del mercado laboral",
        x = "Razones",
@@ -112,3 +115,7 @@ pdf("ruta_archivo/tabla.pdf")
 print(tabla)
 dev.off()
 
+graph3
+tabla
+
+proc_data$sexo <- recode(proc_data$sexo, "-2='NA'; -1='NA'; 1='Hombre'; 2='Mujer'")
