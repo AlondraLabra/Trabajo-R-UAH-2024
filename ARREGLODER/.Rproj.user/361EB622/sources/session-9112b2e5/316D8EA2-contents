@@ -1,14 +1,18 @@
 ---
-title: "Alondra Labra"
-author: "La urgencia de mirar hacia las consecuencias: labores de cuidado asignadas desde la colonia a mujeres en América Latina"
+title: "La urgencia de mirar hacia las consecuencias: labores de cuidado asignadas desde la colonia a mujeres en América Latina"
+author: "Alondra Labra"
 format: html
 editor: visual
-bibliography: trabajo2.0.bib
+bibliography: references.bib
 ---
 
 # **La urgencia de mirar hacia las consecuencias: labores de cuidado asignadas desde la colonia a mujeres en América Latina**
 
 ## La urgencia de mirar hacia las consecuencias: labores de cuidado asignadas desde la colonia a mujeres en América Latina
+
+```{r}
+load("input/data/proc_data")
+```
 
 En las últimas décadas ha surgido desde el planteamiento de la teoría feminista una serie de demandas que hacen alusión a distintas formas en las que la violencia de género viene a estar presente en la estructura social latinoamericana. Estas formas se expresan en ámbitos políticos, públicos, privados, culturales; es de alguna forma una violencia sistematizada. En particular, este artículo busca profundizar acerca de una de las formas de violencia de género que se expresa en la vida privada y se condice con las labores de cuidado asignadas a las mujeres como un trabajo no remunerado y que viene a instaurarse desde la colonización, cuyas víctimas fueron mujeres indígenas, tal como lo expresa Mendoza en [@c.mendoza2023], de forma específica:
 
