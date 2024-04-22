@@ -21,6 +21,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 /* CSS for citations */
 div.csl-bib-body { }
 div.csl-entry {
@@ -88,15 +122,124 @@ div.csl-indent {
 
 <section id="la-urgencia-de-mirar-hacia-las-consecuencias-labores-de-cuidado-asignadas-desde-la-colonia-a-mujeres-en-américa-latina" class="level2">
 <h2 class="anchored" data-anchor-id="la-urgencia-de-mirar-hacia-las-consecuencias-labores-de-cuidado-asignadas-desde-la-colonia-a-mujeres-en-américa-latina">La urgencia de mirar hacia las consecuencias: labores de cuidado asignadas desde la colonia a mujeres en América Latina</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">"C:/Users/alond/Desktop/OFC-R/Trabajo-R-UAH-2024/PRACTICO-R2/input/data/proc_data.RData"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(pacman)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'pacman' was built under R version 4.3.3</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">p_load</span>(dplyr, sjmisc, car, sjlabelled, stargazer, haven, summarytools, kableExtra, sjPlot, corrplot, sessioninfo, ggplot2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p>En las últimas décadas ha surgido desde el planteamiento de la teoría feminista una serie de demandas que hacen alusión a distintas formas en las que la violencia de género viene a estar presente en la estructura social latinoamericana. Estas formas se expresan en ámbitos políticos, públicos, privados, culturales; es de alguna forma una violencia sistematizada. En particular, este artículo busca profundizar acerca de una de las formas de violencia de género que se expresa en la vida privada y se condice con las labores de cuidado asignadas a las mujeres como un trabajo no remunerado y que viene a instaurarse desde la colonización, cuyas víctimas fueron mujeres indígenas, tal como lo expresa Mendoza en <span class="citation" data-cites="c.mendoza2023">(<a href="#ref-c.mendoza2023" role="doc-biblioref">C. Mendoza and Catalina Valdés Blanchemin 2023</a>)</span>, de forma específica:</p>
 <p><em>“el posicionamiento de madres indígenas que debían hacerse cargo de sus hijos mestizos y volverse el pilar fundamental de la familia fue un fenómeno común en toda la región que dejó a la mujer como principal sustento del cuidado familiar y responsable de ese tipo de labores”. <span class="citation" data-cites="c.mendoza2023">(<a href="#ref-c.mendoza2023" role="doc-biblioref">C. Mendoza and Catalina Valdés Blanchemin 2023</a>)</span></em></p>
 <p>Para efectos de esta investigación, se entenderá que a menor reconocimiento de las labores de cuidado como un trabajo, mayor es el índice de enfermedades desarrolladas por mujeres cuidadoras, a raíz de lo que debe ser entendido como estrés laboral dada la carencia de normas que regulen el espacio de trabajo (el hogar).</p>
 <p>Este modelamiento del rol que va a cumplir la mujer en la sociedad latinoamericana va a perpetuar una invisibilización de las labores de cuidado debido a la naturalización y asignación por género del cumplimiento de estos. Asimismo, estas acciones no serán consideradas como un trabajo y por ende no contarán de una remuneración. Es precisamente en este punto donde yace el problema que vamos a investigar: la trascendencia histórica de la asignación de las labores de cuidado hacia las mujeres y sus efectos en la actualidad.</p>
 <p>A lo anteriormente expuesto, debemos considerar que las políticas públicas si bien han intentado hacer frente en menor o mayor grado a esta problemática no han sido lo realmente suficiente, y esto puede deberse en gran medida a la doctrina política liberal que viene a separar lo que sucede en la esfera pública de la esfera privada tal como expone <span class="citation" data-cites="c.mendoza2023">(<a href="#ref-c.mendoza2023" role="doc-biblioref">C. Mendoza and Catalina Valdés Blanchemin 2023</a>)</span>, siendo un problema relegado al interior de las familias e impidiendo la reivindicación de los derechos del cuidado y los derechos laborales de quienes ejercen estos cuidados.</p>
-<p>Al mismo tiempo, las mujeres que se ven envueltas dentro de este fenómeno se ven desprotegidas frente a situaciones de acoso o estrés laboral, pues no existen tales posibilidades de organización de trabajadoras del cuidado como ocurre con otros empleos formalizados y remunerados. Lo anterior ha provocado una precarización de este grupo femenizado que cumple con estas labores que son desempeñadas por mujeres en un 95% de los casos <span class="citation" data-cites="manuelcorreacarrasco2021">(<a href="#ref-manuelcorreacarrasco2021" role="doc-biblioref">Manuel Correa Carrasco and Carrasco 2021</a>)</span> efectos, es importante considerar las labores desde una mirada del trabajo, entendiendo así el entorno como un espacio de trabajo, y en general, las condiciones del hogar como las condiciones del trabajo. De esta forma, surge la posibilidad de evaluar los efectos que tiene la invisibilización y la falta de gestión de esta labor desde la esfera pública. Pues, se expone un alto nivel de estrés laboral, asociado a conductas denigrantes que las trabajadoras domésticas sufren debido a la vulnerabilidad que impone el contexto <span class="citation" data-cites="manuelcorreacarrasco2021">(<a href="#ref-manuelcorreacarrasco2021" role="doc-biblioref">Manuel Correa Carrasco and Carrasco 2021</a>)</span>. Es decir, que surge una precariedad del empleo que exige ser enfrentada bajo la influencia de la esfera pública y política en la regularización, reconocimiento y redistribución de las tareas domésticas comoo un trabajo.</p>
+<p>Al mismo tiempo, las mujeres que se ven envueltas dentro de este fenómeno se ven desprotegidas frente a situaciones de acoso o estrés laboral, pues no existen tales posibilidades de organización de trabajadoras del cuidado como ocurre con otros empleos formalizados y remunerados. Lo anterior ha provocado una precarización de este grupo femenizado que cumple con estas labores que son desempeñadas por mujeres en un 95% de los casos <span class="citation" data-cites="manuelcorreacarrasco2021">(<a href="#ref-manuelcorreacarrasco2021" role="doc-biblioref">Manuel Correa Carrasco and Carrasco 2021</a>)</span> efectos, es importante considerar las labores desde una mirada del trabajo, entendiendo así el entorno como un espacio de trabajo, y en general, las condiciones del hogar como las condiciones del trabajo. De esta forma, surge la posibilidad de evaluar los efectos que tiene la invisibilización y la falta de gestión de esta labor desde la esfera pública. Pues, se expone un alto nivel de estrés laboral, asociado a conductas denigrantes que las trabajadoras domésticas sufren debido a la vulnerabilidad que impone el contexto <span class="citation" data-cites="manuelcorreacarrasco2021">(<a href="#ref-manuelcorreacarrasco2021" role="doc-biblioref">Manuel Correa Carrasco and Carrasco 2021</a>)</span>. Es decir, que surge una precariedad del empleo que exige ser enfrentada bajo la influencia de la esfera pública y política en la regularización, reconocimiento y redistribución de las tareas domésticas como un trabajo.</p>
 <p>Por otra parte, debe considerarse el cuidado de adultos mayores como parte de una labor doméstica que recae en las mujeres, mayoritariamente. Si bien han surgido distintas instancias de creación de programas al fomento del resguardo de la salud para adultos mayores desde los inicios de los 2000’s, según se indica en la agenda <span class="citation" data-cites="nicolebidegainponte2017">(<a href="#ref-nicolebidegainponte2017" role="doc-biblioref">Nicole Bidegain Ponte and Ponte 2017</a>)</span>, donde se exponen distintos parámetros para el resguardo de la salud de adultos mayores, nuevamente quedan exentas las personas cuya responsabilidad social es asumir el acompañamiento y el cuidado de estas personas en distintos niveles de dependencia.</p>
 <p>En último lugar, cabe recalcar que con frecuencia que la realidad de los hogares donde deben ejercerse roles de cuidado tienden a presentar bajos recursos económicos <span class="citation" data-cites="aliciabárcena2021">(<a href="#ref-aliciabárcena2021" role="doc-biblioref">Alicia Bárcena and Alicia Bárcena 2021</a>)</span> de modo que, en caso de hogares monoparentales sostenidos por mujeres, la carga pasa a duplicarse, empeorando las condiciones. Por otra parte, las políticas impulsadas por la inserción laboral al grupo de mujeres bajo la misión de una autonomía económica, esconde detrás las mayores cargas de trabajo dadas las condiciones expuestas con anterioridad a las que se ven enfrentadas las mujeres que cumplirían esta doble labor.</p>
 <p>En último lugar, lo que se busca llevar a cabo con esta investigación es la visibilización de un fenómeno precarizador de la vida de las trabajadoras del cuidado. Lo anterior da cuenta de la urgencia que tiene el desarrollo de políticas y programas de intervención con el propósito de regularizar y reconocer esta labor, pues, es finalmente desde la esfera pública que los efectos de esta problemática pueden transformarse, y ayudar a disminuir los níveles de depresión, estrés u otras enfermedades que pueden derivarse por las condiciones del trabajo de cuidados.&nbsp;</p>
+<p>Para lograr llevar a cabo un análisis sustentado de el tema propuesto, se presentará la siguiente tabla que trabaja con una base la base de datos CASEN 2022. En la tabla encontramos datos que sustentan que la búsqueda de trabajo suele verse impedida por las labores de cuidado y por el trabajo doméstico de manera tendenciosa en el grupo de mujeres. Esto se debe a una femeneización del trabajo doméstico acorde a las revisiones realizzadas anteriormente en la asginación de roles y estereotipos de género. Pues, la tabla nos muestra que mientras un grupo de 280 hombres reconocen dedicarse al trabajo doméstico, 7255 mujeres declaran hacerlo y por esta razón que no han buscado trabajo. Es decir, tan sólo el 3% de hombres se dedican al trabajo doméstico en relación a las mujeres.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>tabla <span class="ot">&lt;-</span> <span class="fu">sjt.xtab</span>(proc_data<span class="sc">$</span>razon, proc_data<span class="sc">$</span>sexo, <span class="at">encoding =</span> <span class="st">"UTF-8"</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>tabla</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+
+<table style="border-collapse:collapse; border:none;">
+ <tbody><tr>
+ <th style="border-top:double; text-align:center; font-style:italic; font-weight:normal; border-bottom:1px solid;" rowspan="2">o7. ¿Cuál es la<br>razón por la que no<br>buscó trabajo en las<br>últimas 4 semanas?</th>
+ <th style="border-top:double; text-align:center; font-style:italic; font-weight:normal;" colspan="2">sexo</th>
+ <th style="border-top:double; text-align:center; font-style:italic; font-weight:normal; font-weight:bolder; font-style:italic; border-bottom:1px solid; " rowspan="2">Total</th>
+ </tr>
+ 
+<tr>
+ <td style="border-bottom:1px solid; text-align:center; padding:0.2cm;">Hombre</td>
+ <td style="border-bottom:1px solid; text-align:center; padding:0.2cm;">Mujer</td>
+ </tr>
+ 
+<tr> 
+<td style="padding:0.2cm;  text-align:left; vertical-align:middle;">0</td>
+<td style="padding:0.2cm; text-align:center; "><span style="color:black;">313</span></td>
+<td style="padding:0.2cm; text-align:center; "><span style="color:black;">1602</span></td>
+<td style="padding:0.2cm; text-align:center;  "><span style="color:black;">1915</span></td> 
+</tr>
+ 
+<tr> 
+<td style="padding:0.2cm;  text-align:left; vertical-align:middle;">Está en espera de<br>una confirmación</td>
+<td style="padding:0.2cm; text-align:center; "><span style="color:black;">252</span></td>
+<td style="padding:0.2cm; text-align:center; "><span style="color:black;">220</span></td>
+<td style="padding:0.2cm; text-align:center;  "><span style="color:black;">472</span></td> 
+</tr>
+ 
+<tr> 
+<td style="padding:0.2cm;  text-align:left; vertical-align:middle;"></td>
+<td style="padding:0.2cm; text-align:center; "><span style="color:black;">12540</span></td>
+<td style="padding:0.2cm; text-align:center; "><span style="color:black;">18234</span></td>
+<td style="padding:0.2cm; text-align:center;  "><span style="color:black;">30774</span></td> 
+</tr>
+ 
+<tr> 
+<td style="padding:0.2cm;  text-align:left; vertical-align:middle;">Se dedica a labores<br>de cuidado</td>
+<td style="padding:0.2cm; text-align:center; "><span style="color:black;">130</span></td>
+<td style="padding:0.2cm; text-align:center; "><span style="color:black;">6075</span></td>
+<td style="padding:0.2cm; text-align:center;  "><span style="color:black;">6205</span></td> 
+</tr>
+ 
+<tr> 
+<td style="padding:0.2cm;  text-align:left; vertical-align:middle;">Dificultades para<br>conseguir trabajo</td>
+<td style="padding:0.2cm; text-align:center; "><span style="color:black;">3486</span></td>
+<td style="padding:0.2cm; text-align:center; "><span style="color:black;">5412</span></td>
+<td style="padding:0.2cm; text-align:center;  "><span style="color:black;">8898</span></td> 
+</tr>
+ 
+<tr> 
+<td style="padding:0.2cm;  text-align:left; vertical-align:middle;">Se dedica al trabajo<br>doméstico</td>
+<td style="padding:0.2cm; text-align:center; "><span style="color:black;">280</span></td>
+<td style="padding:0.2cm; text-align:center; "><span style="color:black;">7255</span></td>
+<td style="padding:0.2cm; text-align:center;  "><span style="color:black;">7535</span></td> 
+</tr>
+ 
+<tr> 
+<td style="padding:0.2cm;  text-align:left; vertical-align:middle;">Otro motivo</td>
+<td style="padding:0.2cm; text-align:center; "><span style="color:black;">7894</span></td>
+<td style="padding:0.2cm; text-align:center; "><span style="color:black;">8085</span></td>
+<td style="padding:0.2cm; text-align:center;  "><span style="color:black;">15979</span></td> 
+</tr>
+ 
+<tr> 
+<td style="padding:0.2cm;  text-align:left; vertical-align:middle;">16</td>
+<td style="padding:0.2cm; text-align:center; "><span style="color:black;">220</span></td>
+<td style="padding:0.2cm; text-align:center; "><span style="color:black;">216</span></td>
+<td style="padding:0.2cm; text-align:center;  "><span style="color:black;">436</span></td> 
+</tr>
+ 
+<tr> 
+<td style="padding:0.2cm;  border-bottom:double; font-weight:bolder; font-style:italic; text-align:left; vertical-align:middle;">Total</td>
+<td style="padding:0.2cm; text-align:center;   border-bottom:double;"><span style="color:black;">25115</span></td>
+<td style="padding:0.2cm; text-align:center;   border-bottom:double;"><span style="color:black;">47099</span></td>
+<td style="padding:0.2cm; text-align:center;   border-bottom:double;"><span style="color:black;">72214</span></td> 
+</tr>
+<tr><td style="text-align:right; font-size:0.9em; font-style:italic; padding:0.2cm;" colspan="4">χ<sup>2</sup>=9114.935 · df=18 · Cramer's V=0.355 · p=0.000</td> 
+</tr>
+ 
+</tbody></table>
+</div>
+</div>
+<p>Además, el siguiente gráfico nos proporciona información para sustentar este fenómeno en la medida que las mujeres corresponde al grupo con menor recurrencia a buscar un trabajo. Siendo quienes buscan un trabajo con menor recurrencia en al menos un 25% de los casos en relación a los hombres.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>graph3 <span class="ot">&lt;-</span> proc_data <span class="sc">%&gt;%</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> busc_trab, <span class="at">fill =</span> sexo)) <span class="sc">+</span> </span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>() <span class="sc">+</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Búsqueda de trabajo"</span>) <span class="sc">+</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Cantidad"</span>) <span class="sc">+</span> </span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">fill =</span> <span class="st">"Sexo"</span>) <span class="sc">+</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_discrete</span>(<span class="at">labels =</span> <span class="fu">c</span>(<span class="st">'Hombre'</span>, <span class="st">'Mujer'</span>))</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>graph3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="TRABAJO-OFC-1_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
 
 </section>
 
